@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Python环境搭建 | ZhanTengYun</title><meta name="author" content="ZhanTengYun"><meta name="copyright" content="ZhanTengYun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Python环境搭建指的是在计算机上配置必要的软件，以便能够运行和开发Python代码。 安装Python解释器点击下载Python解释器安装包，双击下载得到的python-3.8.10-amd64.exe，就可以正式开始安装Python解释器了。  尽量勾选Add Python 3.8 to PATH，这样可以将Python命令工具所在目录添加到系统Path环境变量中，以后开发程序或者运行Pyt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python环境搭建">
+<meta property="og:url" content="https://zhantengyun19930607.github.io/post/13c36235.html">
+<meta property="og:site_name" content="ZhanTengYun">
+<meta property="og:description" content="Python环境搭建指的是在计算机上配置必要的软件，以便能够运行和开发Python代码。 安装Python解释器点击下载Python解释器安装包，双击下载得到的python-3.8.10-amd64.exe，就可以正式开始安装Python解释器了。  尽量勾选Add Python 3.8 to PATH，这样可以将Python命令工具所在目录添加到系统Path环境变量中，以后开发程序或者运行Pyt">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhantengyun19930607.github.io/img/Python.jpg">
+<meta property="article:published_time" content="2024-02-05T14:02:31.000Z">
+<meta property="article:modified_time" content="2024-02-05T14:18:47.277Z">
+<meta property="article:author" content="ZhanTengYun">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhantengyun19930607.github.io/img/Python.jpg"><link rel="shortcut icon" href="/img/avatar.jpg"><link rel="canonical" href="https://zhantengyun19930607.github.io/post/13c36235.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python环境搭建',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2024-02-05 22:18:47'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/./img/Python.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="ZhanTengYun"><span class="site-name">ZhanTengYun</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Python环境搭建</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-02-05T14:02:31.000Z" title="发表于 2024-02-05 22:02:31">2024-02-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-05T14:18:47.277Z" title="更新于 2024-02-05 22:18:47">2024-02-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">Python基础语法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python环境搭建"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Python环境搭建指的是在计算机上配置必要的软件，以便能够运行和开发Python代码。</p>
+<h2 id="安装Python解释器"><a href="#安装Python解释器" class="headerlink" title="安装Python解释器"></a>安装Python解释器</h2><p><a target="_blank" rel="noopener" href="https://www.python.org/ftp/python/3.8.10/python-3.8.10-amd64.exe"><strong>点击下载Python解释器安装包</strong></a>，双击下载得到的python-3.8.10-amd64.exe，就可以正式开始安装Python解释器了。</p>
+<p><img src="/./img/1.png" alt="Python安装第一步"></p>
+<p>尽量勾选<code>Add Python 3.8 to PATH</code>，这样可以将Python命令工具所在目录添加到系统Path环境变量中，以后开发程序或者运行Python命令会非常方便。</p>
+<p>点击”Customize installation”进行入下一步，选择要安装的Python组件。</p>
+<p><img src="/./img/2.png" alt="Python安装第二步"></p>
+<p>没有特殊要求的话，保持默认即可，也就是全部勾选。点击”Next”继续。</p>
+<p><img src="/./img/3.png" alt="Python安装第三步"></p>
+<p>Install for all users（为所有用户安装）：默认情况下，Python安装程序将Python仅安装到当前用户的目录中。选择此选项可以将Python安装为系统范围内的共享安装，使得所有用户都可以访问和使用Python。</p>
+<p>选择好你的安装目录，点击”Install”，等待几分钟就可以完成安装。</p>
+<p>安装完成以后，打开Windows的命令行程序，在窗口中输入python，如果出现Python的版本信息，并看到命令提示符<code>&gt;&gt;&gt;</code>，就说明安装成功了。</p>
+<p>Python程序的书写与执行方式有以下几种：</p>
+<ul>
+<li><p>打开命令行窗口，输入python启动Python交互式解释器。可以逐行执行Python代码并查看结果。</p>
+</li>
+<li><p>使用任何文本编辑器创建一个以.py为扩展名的Python源代码文件。在文件中编写Python代码，保存文件后，可以通过命令行执行Python解释器来运行程序。<br>  执行方式：打开命令行窗口，导航到保存Python源代码文件的目录，然后运行以下命令：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python 文件名.py</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用专门针对Python开发的<strong>集成开发环境（IDE）</strong>，集成开发环境，用来表示辅助程序员开发的应用软件，是它们的一个总称。用来提升程序员的开发效率。  IDE提供了代码编辑、调试、运行等功能，以及更友好的开发环境。</p>
+</li>
+</ul>
+<h2 id="PyCharm安装"><a href="#PyCharm安装" class="headerlink" title="PyCharm安装"></a>PyCharm安装</h2><p><img src="/./img/4.png" alt="pycharm安装第一步"></p>
+<p><img src="/./img/5.png" alt="pycharm安装第二步"></p>
+<p><img src="/./img/6.png" alt="pycharm安装第三步"></p>
+<p><img src="/./img/7.png" alt="pycharm安装第四步"></p>
+<p><strong>显示中文界面。</strong></p>
+<ul>
+<li>点击setting</li>
+<li>点击”plugins”选项。</li>
+<li>输入”Chinese”找到中文安装包，点击”Install”。</li>
+<li>安装完成后，点击”restart IDE”重启程序。</li>
+<li>重启后，软件已经成功变成中文。</li>
+</ul>
+<p><strong>滚轮调整字体大小。</strong></p>
+<ul>
+<li>点击设置</li>
+<li>点击常规</li>
+<li>勾选使用Ctrl+鼠标滚轮更改字号</li>
+</ul>
+<p><strong>任务栏字体大小</strong></p>
+<ul>
+<li>点击设置</li>
+<li>点击外观与行为，点击外观，点击使用自定义字体。</li>
+<li>选择字体大小</li>
+</ul>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post_share"></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/aa90b6ef.html" title="Python函数(下)"><img class="cover" src="/./img/func.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-05</div><div class="title">Python函数(下)</div></div></a></div><div><a href="/post/b38b87ae.html" title="Python函数(上)"><img class="cover" src="/./img/func.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-05</div><div class="title">Python函数(上)</div></div></a></div><div><a href="/post/13ffbe88.html" title="变量"><img class="cover" src="/./img/variable.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-05</div><div class="title">变量</div></div></a></div><div><a href="/post/23e8ad99.html" title="数据类型-字典与集合"><img class="cover" src="/./img/dictateandset.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-05</div><div class="title">数据类型-字典与集合</div></div></a></div><div><a href="/post/694e35cb.html" title="Python函数(中)"><img class="cover" src="/./img/func.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-05</div><div class="title">Python函数(中)</div></div></a></div><div><a href="/post/f85dc389.html" title="数据类型-序列"><img class="cover" src="/./img/sequence.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-05</div><div class="title">数据类型-序列</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Python%E8%A7%A3%E9%87%8A%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">安装Python解释器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PyCharm%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">PyCharm安装</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/./img/Python.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2024 By ZhanTengYun</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></body></html>

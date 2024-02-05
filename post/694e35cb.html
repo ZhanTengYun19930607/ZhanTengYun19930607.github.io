@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Python函数(中) | ZhanTengYun</title><meta name="author" content="ZhanTengYun"><meta name="copyright" content="ZhanTengYun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="作用域作用域规定了在程序中某个位置定义的变量在哪些地方可以被引用。  全局作用域：全局作用域是在整个程序中都可访问的作用域。在函数外部定义的变量属于全局作用域。全局作用域中的变量可以在程序的任何地方被引用。   12345678x &#x3D; 10  # 全局变量def foo():    print(x)  # 可以访问全局变量foo()  # 输出: 10  局部作用域：局部作用域是在函数内部定义的作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python函数(中)">
+<meta property="og:url" content="https://zhantengyun19930607.github.io/post/694e35cb.html">
+<meta property="og:site_name" content="ZhanTengYun">
+<meta property="og:description" content="作用域作用域规定了在程序中某个位置定义的变量在哪些地方可以被引用。  全局作用域：全局作用域是在整个程序中都可访问的作用域。在函数外部定义的变量属于全局作用域。全局作用域中的变量可以在程序的任何地方被引用。   12345678x &#x3D; 10  # 全局变量def foo():    print(x)  # 可以访问全局变量foo()  # 输出: 10  局部作用域：局部作用域是在函数内部定义的作">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhantengyun19930607.github.io/img/func.jpg">
+<meta property="article:published_time" content="2024-02-05T15:01:21.000Z">
+<meta property="article:modified_time" content="2024-02-05T15:07:02.075Z">
+<meta property="article:author" content="ZhanTengYun">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhantengyun19930607.github.io/img/func.jpg"><link rel="shortcut icon" href="/img/avatar.jpg"><link rel="canonical" href="https://zhantengyun19930607.github.io/post/694e35cb.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python函数(中)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2024-02-05 23:07:02'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/./img/func.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="ZhanTengYun"><span class="site-name">ZhanTengYun</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Python函数(中)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-02-05T15:01:21.000Z" title="发表于 2024-02-05 23:01:21">2024-02-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-05T15:07:02.075Z" title="更新于 2024-02-05 23:07:02">2024-02-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">Python基础语法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python函数(中)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>作用域规定了在程序中某个位置定义的变量在哪些地方可以被引用。</p>
+<ul>
+<li><p>全局作用域：全局作用域是在整个程序中都可访问的作用域。在函数外部定义的变量属于全局作用域。全局作用域中的变量可以在程序的任何地方被引用。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">10</span>  <span class="comment"># 全局变量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">foo</span>():</span><br><span class="line">    <span class="built_in">print</span>(x)  <span class="comment"># 可以访问全局变量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">foo()  <span class="comment"># 输出: 10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>局部作用域：局部作用域是在函数内部定义的作用域。在函数内部定义的变量属于局部作用域，只能在函数内部被访问。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">foo</span>():</span><br><span class="line">    y = <span class="number">20</span>  <span class="comment"># 局部变量</span></span><br><span class="line">    <span class="built_in">print</span>(y)  <span class="comment"># 可以访问局部变量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">foo()  <span class="comment"># 输出: 20</span></span><br><span class="line"><span class="built_in">print</span>(y)  <span class="comment"># 报错，无法访问局部变量</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>嵌套作用域：嵌套作用域是指在函数内部可以访问外部函数定义的变量。每当创建一个新的函数，就会创建一个新的嵌套作用域。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">outer</span>():</span><br><span class="line">    a = <span class="number">10</span>  <span class="comment"># 外部函数的局部变量</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inner</span>():</span><br><span class="line">        b = <span class="number">20</span>  <span class="comment"># 内部函数的局部变量</span></span><br><span class="line">        <span class="built_in">print</span>(a + b)  <span class="comment"># 可以访问外部函数的变量</span></span><br><span class="line"></span><br><span class="line">    inner()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">outer()  <span class="comment"># 输出: 30</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>内置作用域：内置作用域是指Python解释器内置的一些函数和变量的作用域。这些函数和变量可以直接在Python代码中使用，无需导入任何模块。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))  <span class="comment"># 使用内置函数len()</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>在Python中，变量的作用域遵循 LEGB 原则，即在查找变量时按照以下顺序进行搜索：局部作用域（Local Scope） -&gt; 嵌套作用域（Enclosing Scope） -&gt; 全局作用域（Global Scope） -&gt; 内置作用域（Built-in Scope）。也就是说，如果在局部作用域找不到变量，就会向上一层作用域继续查找，直到找到为止。如果在所有作用域中都找不到变量，则会抛出 NameError 异常。</p>
+<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>迭代是指重复执行某个操作的过程，并且每次迭代得到的结果会作为下一次迭代的初始值。</p>
+<p>可迭代对象：从语法形式上讲，内置有<code>__iter__</code>方法的对象都是可迭代对象，字符串、列表、元组、字典、集合都是可迭代对象。</p>
+<p>调用<code>__iter__</code>方法返回的结果就是一个迭代器对象(Iterator)。迭代器对象是内置有<code>__iter__</code>和<code>__next__</code>方法的对象</p>
+<ul>
+<li>执行迭代器对象<code>__iter__</code>方法得到的仍然是迭代器本身</li>
+<li>而执行迭代器<code>__next__</code>方法就会计算出迭代器中的下一个值。</li>
+</ul>
+<p>for循环原理</p>
+<ul>
+<li><code>for</code> 循环是一种迭代循环，用于遍历可迭代对象中的元素。</li>
+<li><code>for</code> 循环语法中的<code>in</code>后可以跟任何可迭代对象，如列表、元组、字符串、字典等。</li>
+<li>当<code>for</code>循环开始执行时，它会首先调用可迭代对象的内置 <code>__iter__</code> 方法，以获取一个迭代器对象。</li>
+<li>然后，<code>for</code>循环会重复调用迭代器对象的 <code>__next__</code> 方法，以获取可迭代对象中的下一个值，并将这个值赋给循环变量。</li>
+<li>这个过程会一直重复，直到迭代器对象耗尽，即可迭代对象中的所有元素都被访问完毕，或者遇到<code>break</code>语句提前终止循环。</li>
+<li>当迭代器对象耗尽时，它会引发 <code>StopIteration</code> 异常，这时<code>for</code>循环会捕捉到该异常，结束迭代过程。</li>
+</ul>
+<p>迭代器提供了一种统一的遍历方式，无论是对列表、字典、集合还是自定义的可迭代对象，都可以使用相同的 <code>for</code> 循环语法进行遍历。</p>
+<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><p>若函数体包含yield关键字，再调用函数，并不会执行函数体代码，得到的返回值即生成器对象，生成器内置有<code>__iter__</code>和<code>__next__</code>方法，所以生成器本身就是一个迭代器。我们可以用<code>__next__</code>触发生成器所对应函数的执行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_range</span>(<span class="params">start, stop, step=<span class="number">1</span></span>):</span><br><span class="line">    <span class="keyword">while</span> start &lt; stop:</span><br><span class="line">        <span class="keyword">yield</span> start</span><br><span class="line">        start += step</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">g = my_range(<span class="number">0</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<p>有了yield关键字，我们就有了一种自定义迭代器的实现方式。yield可以用于返回值，但不同于return，函数一旦遇到return就结束了，而yield可以保存函数的运行状态挂起函数，用来返回多次值。</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>构成闭包函数的基本条件</p>
+<ul>
+<li>必须有一个内嵌函数：闭包函数需要在其内部定义一个或多个函数，这些内部函数被称为内嵌函数或嵌套函数。</li>
+<li>内嵌函数必须引用外部函数中的变量：闭包函数的内嵌函数必须引用外部函数中的变量。这意味着内嵌函数可以访问和操作外部函数的变量，并且这些变量的状态在内嵌函数被调用时保留。</li>
+<li>外部函数返回值必须是内嵌函数：外部函数需要返回其内部定义的内嵌函数。这样，外部函数调用后返回的是内嵌函数本身，而不是执行内嵌函数的结果。</li>
+</ul>
+<p>满足这三个要素的函数就是一个闭包函数。闭包可以被视为一种封装机制。封装是面向对象编程中的一个重要概念，它允许将数据和相关的操作封装在一个单元中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">counter</span>():</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">increment</span>():</span><br><span class="line">        <span class="keyword">nonlocal</span> count</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Count:&quot;</span>, count)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> increment</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">counter1 = counter()</span><br><span class="line">counter1()</span><br><span class="line">counter1()</span><br></pre></td></tr></table></figure>
+
+<p><code>global</code> 语句：在函数内部修改全局变量；在函数内部定义全局变量（全局声明）。当你在函数内部使用 <code>global</code> 语句来修改一个变量时，Python 将会将该变量视为全局变量，而非局部变量。这样，你就可以在函数内部修改全局变量的值，而不会创建一个新的局部变量。</p>
+<p><code>nonlocal</code> 语句：在内层函数中修改外层嵌套函数内的变量。当你在一个嵌套函数内部使用 <code>nonlocal</code> 语句来引用一个变量时，Python 将会将该变量视为来自于最近的非全局作用域，而非局部作用域。</p>
+<h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><p>装饰器允许在不修改原始函数代码的情况下，通过包装函数来扩展或修改其行为。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">timer_decorator</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        start_time = time.time()</span><br><span class="line">        result = func(*args, **kwargs)</span><br><span class="line">        end_time = time.time()</span><br><span class="line">        execution_time = end_time - start_time</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Function &#x27;<span class="subst">&#123;func.__name__&#125;</span>&#x27; executed in <span class="subst">&#123;execution_time&#125;</span> seconds.&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@timer_decorator</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">my_function</span>():</span><br><span class="line">    <span class="comment"># 模拟函数执行</span></span><br><span class="line">    time.sleep(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用被装饰的函数</span></span><br><span class="line">my_function()</span><br></pre></td></tr></table></figure>
+
+<p>通过在函数定义上方使用 <code>@timer_decorator</code>，我们将 <code>my_function</code> 函数应用了装饰器。这意味着在调用 <code>my_function()</code> 时，实际上是在调用装饰器返回的<code>wrapper</code>函数。这样，我们可以在不修改 <code>my_function</code> 的情况下，为其添加额外的行为（记录执行时间）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 装饰器模板</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">outter</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args,**kwargs</span>):</span><br><span class="line">        <span class="comment"># 1、调用原函数</span></span><br><span class="line">        <span class="comment"># 2、为其增加新功能</span></span><br><span class="line">        res=func(*args,**kwargs)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br></pre></td></tr></table></figure>
+
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post_share"></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/aa90b6ef.html" title="Python函数(下)"><img class="cover" src="/./img/func.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-05</div><div class="title">Python函数(下)</div></div></a></div><div><a href="/post/13c36235.html" title="Python环境搭建"><img class="cover" src="/./img/Python.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-05</div><div class="title">Python环境搭建</div></div></a></div><div><a href="/post/b38b87ae.html" title="Python函数(上)"><img class="cover" src="/./img/func.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-05</div><div class="title">Python函数(上)</div></div></a></div><div><a href="/post/13ffbe88.html" title="变量"><img class="cover" src="/./img/variable.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-05</div><div class="title">变量</div></div></a></div><div><a href="/post/23e8ad99.html" title="数据类型-字典与集合"><img class="cover" src="/./img/dictateandset.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-05</div><div class="title">数据类型-字典与集合</div></div></a></div><div><a href="/post/f85dc389.html" title="数据类型-序列"><img class="cover" src="/./img/sequence.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-05</div><div class="title">数据类型-序列</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.</span> <span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">迭代器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">生成器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E5%8C%85"><span class="toc-number">4.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">装饰器</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/./img/func.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2024 By ZhanTengYun</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></body></html>
